@@ -1,0 +1,18 @@
+[
+  {
+    "id": "CERT-1763396684894-2d5xphv0n",
+    "studentID": "23mcf1r03",
+    "studentName": "Akash Purwar",
+    "certificateName": "MCA",
+    "certificateType": "Award",
+    "certificateDescription": "",
+    "isMarksheet": false,
+    "issueDate": "2025-11-17",
+    "expiryDate": "2028-11-17",
+    "verificationCode": "V740FKW4S",
+    "isVerified": true,
+    "createdAt": "2025-11-17T16:24:44.894Z",
+    "onBlockchain": true,
+    "blockchainHash": "f490c593eebeb845"
+  }
+]

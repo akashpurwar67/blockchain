@@ -1,0 +1,29 @@
+[0;34m========================================[0m
+[0;34mHyperledger Fabric Setup for NIT Academic Records[0m
+[0;34m========================================[0m
+
+[1;33m[1/4] Setting up Fabric environment...[0m
+✅ Fabric binaries path: /home/hp/Academic Records/nit-warangal-network/fabric-samples/bin
+✅ Fabric config path: /home/hp/Academic Records/nit-warangal-network/fabric-samples/config
+
+[1;33m[2/4] Stopping any existing network...[0m
+[0;34mUsing docker and docker-compose[0m
+[0;34mStopping network[0m
+[0;34mRemoving remaining containers[0m
+[0;34mRemoving generated chaincode docker images[0m
+
+[1;33m[3/4] Starting Fabric test network (this may take 1-2 minutes)...[0m
+./network.sh: line 26: pushd: too many arguments
+[0;34mUsing docker and docker-compose[0m
+[0;34mCreating channel 'mychannel'.[0m
+[0;34mIf network is not up, starting nodes with CLI timeout of '5' tries and CLI delay of '3' seconds and using database 'leveldb with crypto from 'Certificate Authorities'[0m
+[0;34mBringing up network[0m
+[0;34mLOCAL_VERSION=v2.5.14[0m
+[0;34mDOCKER_IMAGE_VERSION=v2.5.0[0m
+[1;33mLocal fabric binaries and docker images are out of sync. This may cause problems.[0m
+[0;34mCA_LOCAL_VERSION=v1.5.15[0m
+[0;34mCA_DOCKER_IMAGE_VERSION=v1.5.6[0m
+[1;33mLocal fabric-ca binaries and docker images are out of sync. This may cause problems.[0m
+[0;34mGenerating certificates using Fabric CA[0m
+Top level object in './compose/docker/docker-compose-ca.yaml' needs to be an object not '<class 'NoneType'>'.
+./network.sh: line 227: organizations/fabric-ca/registerEnroll.sh: No such file or directory

@@ -1,0 +1,71 @@
+# Peer Configuration
+logging:
+  level: info
+  format: '%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s}%{color:reset} %{message}'
+
+peer:
+  id: jdoe
+  networkId: dev
+  listenAddress: 0.0.0.0:7051
+  chaincodeListenAddress: 0.0.0.0:7052
+  address: 127.0.0.1:7051
+  addressAutoDetect: false
+  
+  # TLS configuration
+  tls:
+    enabled: true
+    certFile: /etc/hyperledger/fabric/tls/server.crt
+    keyFile: /etc/hyperledger/fabric/tls/server.key
+    clientAuthRequired: false
+    
+  # Gossip configuration
+  gossip:
+    bootstrap: 127.0.0.1:7051
+    useLeaderElection: true
+    orgLeader: false
+    
+  # Chaincode configuration
+  chaincode:
+    golang:
+      runtime: hyperledger/fabric-ccenv:latest
+    car:
+      runtime: hyperledger/fabric-ccenv:latest
+    java:
+      runtime: hyperledger/fabric-javaenv:latest
+    startuptimeout: 300s
+    executetimeout: 30s
+    mode: net
+    keepalive: 5s
+    system:
+      cscc: enable
+      lscc: enable
+      escc: enable
+      vscc: enable
+      qscc: enable
+    logging:
+      level: info
+      
+  # Ledger configuration
+  ledger:
+    blockchain:
+      deploySystemCCOnSysChannel: true
+    state:
+      stateDatabase: goleveldb
+      
+  # VM configuration
+  vm:
+    endpoint: unix:///var/run/docker.sock
+    docker:
+      tls:
+        enabled: false
+        
+  operations:
+    listenAddress: 0.0.0.0:9440
+
+chaincode:
+  system:
+    cscc: enable
+    lscc: enable
+    escc: enable
+    vscc: enable
+    qscc: enable

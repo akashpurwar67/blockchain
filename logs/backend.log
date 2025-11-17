@@ -1,0 +1,56 @@
+nohup: ignoring input
+
+> academic-records-api@1.0.0 dev
+> ts-node src/index.ts
+
+/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/controllers/certificate.controller.ts(255,64): error TS2304: Cannot find name 'n'.
+src/controllers/certificate.controller.ts(267,89): error TS2304: Cannot find name 'n'.
+src/controllers/certificate.controller.ts(267,159): error TS2304: Cannot find name 'n'.
+src/controllers/certificate.controller.ts(267,222): error TS2304: Cannot find name 'n'.
+src/controllers/certificate.controller.ts(267,285): error TS2304: Cannot find name 'n'.
+src/controllers/certificate.controller.ts(267,349): error TS2304: Cannot find name 'n'.
+src/controllers/certificate.controller.ts(295,105): error TS2304: Cannot find name 'n'.
+src/controllers/certificate.controller.ts(295,141): error TS2304: Cannot find name 'n'.
+src/controllers/certificate.controller.ts(295,202): error TS2304: Cannot find name 'n'.
+src/controllers/certificate.controller.ts(255,63): error TS1127: Invalid character.
+src/controllers/certificate.controller.ts(255,64): error TS1434: Unexpected keyword or identifier.
+src/controllers/certificate.controller.ts(267,88): error TS1127: Invalid character.
+src/controllers/certificate.controller.ts(267,89): error TS1434: Unexpected keyword or identifier.
+src/controllers/certificate.controller.ts(267,158): error TS1127: Invalid character.
+src/controllers/certificate.controller.ts(267,159): error TS1434: Unexpected keyword or identifier.
+src/controllers/certificate.controller.ts(267,221): error TS1127: Invalid character.
+src/controllers/certificate.controller.ts(267,222): error TS1434: Unexpected keyword or identifier.
+src/controllers/certificate.controller.ts(267,284): error TS1127: Invalid character.
+src/controllers/certificate.controller.ts(267,285): error TS1434: Unexpected keyword or identifier.
+src/controllers/certificate.controller.ts(267,348): error TS1127: Invalid character.
+src/controllers/certificate.controller.ts(267,349): error TS1434: Unexpected keyword or identifier.
+src/controllers/certificate.controller.ts(295,104): error TS1127: Invalid character.
+src/controllers/certificate.controller.ts(295,105): error TS1434: Unexpected keyword or identifier.
+src/controllers/certificate.controller.ts(295,140): error TS1127: Invalid character.
+src/controllers/certificate.controller.ts(295,141): error TS1434: Unexpected keyword or identifier.
+src/controllers/certificate.controller.ts(295,201): error TS1127: Invalid character.
+src/controllers/certificate.controller.ts(295,202): error TS1434: Unexpected keyword or identifier.
+
+    at createTSError (/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Object.require.extensions.<computed> [as .ts] (/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Module.require (node:internal/modules/cjs/loader:1225:19) {
+  diagnosticCodes: [
+    2304, 2304, 2304, 2304, 2304,
+    2304, 2304, 2304, 2304, 1127,
+    1434, 1127, 1434, 1127, 1434,
+    1127, 1434, 1127, 1434, 1127,
+    1434, 1127, 1434, 1127, 1434,
+    1127, 1434
+  ]
+}

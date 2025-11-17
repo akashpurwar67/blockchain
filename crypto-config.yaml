@@ -1,0 +1,33 @@
+# Hyperledger Fabric Crypto Configuration
+# Defines organizations, orderers, and peers for the network
+
+OrdererOrgs:
+  - Name: Orderer
+    Domain: orderer.example.com
+    Specs:
+      - Hostname: orderer
+
+PeerOrgs:
+  - Name: NITWarangal
+    Domain: nit.example.com
+    EnableNodeOUs: true
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Students
+    Domain: students.example.com
+    EnableNodeOUs: true
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+  - Name: Verifiers
+    Domain: verifiers.example.com
+    EnableNodeOUs: true
+    Template:
+      Count: 1
+    Users:
+      Count: 1

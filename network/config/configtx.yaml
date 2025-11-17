@@ -1,0 +1,152 @@
+---
+Organizations:
+  - &OrdererOrg
+    Name: OrdererOrg
+    ID: OrdererMSP
+    MSPDir: ../organizations/ordererOrganizations/orderer.nitw.edu/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('OrdererMSP.member')"
+      Writers:
+        Type: Signature
+        Rule: "OR('OrdererMSP.member')"
+      Admins:
+        Type: Signature
+        Rule: "OR('OrdererMSP.admin')"
+    OrdererEndpoints:
+      - orderer.nitw.edu:7050
+
+  - &NITWarangal
+    Name: NITWarangal
+    ID: NITWarangalMSP
+    MSPDir: ../organizations/peerOrganizations/nit.edu/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('NITWarangalMSP.admin', 'NITWarangalMSP.peer', 'NITWarangalMSP.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('NITWarangalMSP.admin', 'NITWarangalMSP.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('NITWarangalMSP.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('NITWarangalMSP.peer')"
+
+  - &Departments
+    Name: Departments
+    ID: DepartmentsMSP
+    MSPDir: ../organizations/peerOrganizations/dept.nit.edu/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('DepartmentsMSP.admin', 'DepartmentsMSP.peer', 'DepartmentsMSP.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('DepartmentsMSP.admin', 'DepartmentsMSP.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('DepartmentsMSP.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('DepartmentsMSP.peer')"
+
+  - &Verifiers
+    Name: Verifiers
+    ID: VerifiersMSP
+    MSPDir: ../organizations/peerOrganizations/verifiers.nit.edu/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('VerifiersMSP.admin', 'VerifiersMSP.peer', 'VerifiersMSP.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('VerifiersMSP.admin', 'VerifiersMSP.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('VerifiersMSP.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('VerifiersMSP.peer')"
+
+Capabilities:
+  Channel: &ChannelCapabilities
+    V2_0: true
+  Orderer: &OrdererCapabilities
+    V2_0: true
+  Application: &ApplicationCapabilities
+    V2_0: true
+
+Application: &ApplicationDefaults
+  Organizations:
+    - *NITWarangal
+    - *Departments
+    - *Verifiers
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    LifecycleEndorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+    Endorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+
+Orderer: &OrdererDefaults
+  OrdererType: etcdraft
+  EtcdRaft:
+    Consenters:
+      - Host: orderer.nitw.edu
+        Port: 7050
+        ClientTLSCertHash: ""
+  Addresses:
+    - orderer.nitw.edu:7050
+  BatchTimeout: 2s
+  BatchSize:
+    MaxMessageCount: 500
+    AbsoluteMaxBytes: 10485760
+    PreferredMaxBytes: 2097152
+  Organizations:
+    - *OrdererOrg
+  Policies:
+    BlockValidation:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+
+Profiles:
+  OrdererGenesis:
+    Orderer:
+      <<: *OrdererDefaults
+      Capabilities:
+        <<: *OrdererCapabilities
+    Consortiums:
+      AcademicConsortium:
+        Organizations:
+          - *NITWarangal
+          - *Departments
+          - *Verifiers
+
+  AcademicRecordsChannel:
+    Consortium: AcademicConsortium
+    Application:
+      <<: *ApplicationDefaults
+      Capabilities:
+        <<: *ApplicationCapabilities

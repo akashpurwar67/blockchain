@@ -1,0 +1,47 @@
+# Hyperledger Fabric - Cryptographic Configuration
+# Defines certificate authorities and identity for each organization
+
+OrdererOrgs:
+  - Name: OrdererOrg
+    Domain: orderer.nitw.edu
+    EnableNodeOUs: true
+    Specs:
+      - Hostname: orderer
+        CommonName: orderer.nitw.edu
+
+PeerOrgs:
+  # NITWarangal Organization - Network Administrator
+  - Name: NITWarangal
+    Domain: nit.edu
+    EnableNodeOUs: true
+    Template:
+      Count: 2
+      SANS:
+        - localhost
+        - 127.0.0.1
+    Users:
+      Count: 1
+      
+  # Departments Organization - Academic Record Publishers
+  - Name: Departments
+    Domain: dept.nit.edu
+    EnableNodeOUs: true
+    Template:
+      Count: 2
+      SANS:
+        - localhost
+        - 127.0.0.1
+    Users:
+      Count: 1
+      
+  # Verifiers Organization - External Verification Body
+  - Name: Verifiers
+    Domain: verifiers.nit.edu
+    EnableNodeOUs: true
+    Template:
+      Count: 1
+      SANS:
+        - localhost
+        - 127.0.0.1
+    Users:
+      Count: 1
