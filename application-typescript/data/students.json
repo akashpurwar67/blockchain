@@ -16,10 +16,33 @@
     "name": "Ashish Verma",
     "email": "av23mcf1r06@student.nitw.ac.in",
     "department": "CSE",
-    "status": "ISSUED",
+    "status": "ACTIVE",
     "transactionId": "TX-1763397234270",
     "createdAt": "2025-11-17T16:33:54.275Z",
     "certificatesGenerated": [],
-    "enrollmentDate": "2025-11-17"
+    "enrollmentDate": "2025-11-17",
+    "updatedAt": "2025-11-18T06:53:26.381Z"
+  },
+  {
+    "studentId": "23mcf1r58",
+    "name": "Yogesh Kumar",
+    "email": "yk23mcf1r58@student.nitw.ac.in",
+    "department": "CSE",
+    "status": "ISSUED",
+    "transactionId": "TX-1763449420611",
+    "createdAt": "2025-11-18T07:03:40.618Z",
+    "certificatesGenerated": [],
+    "enrollmentDate": "2025-11-18"
+  },
+  {
+    "studentId": "23mcf1r42",
+    "name": "Shivang Katiyar",
+    "email": "sk23mcf1r42@student.nitw.ac.in",
+    "department": "CSE",
+    "status": "ISSUED",
+    "transactionId": "TX-1763449845558",
+    "createdAt": "2025-11-18T07:10:45.573Z",
+    "certificatesGenerated": [],
+    "enrollmentDate": "2025-11-18"
   }
 ]

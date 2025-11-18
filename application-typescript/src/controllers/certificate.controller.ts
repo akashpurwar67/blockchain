@@ -167,6 +167,20 @@ export class CertificateController {
 
       logger.info(`Certificate generated: ${certificateId} for student ${studentID}${isMarksheet ? ' (MARKSHEET)' : ''}`);
 
+      console.log('\n📝 Certificate Details:');
+      console.log(`   📌 Certificate ID: ${certificateId}`);
+      console.log(`   🔐 Verification Code: ${verificationCode}`);
+      console.log(`   ⏳ Expiry Date: ${expiryDate}`);
+      if (isMarksheet && marksheetData) {
+        console.log(`   📊 Marksheet for: Semester ${marksheetData.semester}, Year ${marksheetData.academicYear}`);
+        if (marksheetData.totalMarks !== undefined) {
+          console.log(`   📈 Total Marks: ${marksheetData.totalMarks}/${marksheetData.totalMarksMax}`);
+        }
+        if (marksheetData.gpa !== undefined) {
+          console.log(`   GPA: ${marksheetData.gpa}`);
+        }
+      }
+
       // **BLOCKCHAIN INTEGRATION**: Submit to Hyperledger Fabric (or demo mode)
       let blockchainResult: any = null;
       let onBlockchain = false;
@@ -177,6 +191,7 @@ export class CertificateController {
 
         // Submit to blockchain (works in both real and demo mode)
         logger.info(`Submitting certificate ${certificateId} to blockchain...`);
+        console.log('\n🔗 Submitting to Blockchain...');
         
         const result = await this.fabricService.submitTransaction('IssueCertificate', [
           certificateId,
@@ -197,7 +212,10 @@ export class CertificateController {
           this.writeCertificates(updatedCerts);
         }
 
-        const networkMode = this.fabricService.isRealConnection() ? '✅ REAL FABRIC NETWORK' : '🔐 CRYPTOGRAPHIC VERIFICATION (Demo Mode)';
+        const networkMode = this.fabricService.isRealConnection() ? '✅ REAL FABRIC NETWORK' : '🔐 DEMO MODE (Cryptographic Verification)';
+        console.log(`   ${networkMode}`);
+        console.log(`   ✅ Certificate submitted to blockchain successfully`);
+        console.log(`   🔗 Blockchain Hash: ${certificate.blockchainHash}`);
         logger.info(`✅ Certificate submitted to blockchain: ${certificateId} (${networkMode})`);
       } catch (fabricError) {
         logger.warn(`Blockchain submission failed: ${fabricError}`);
@@ -271,6 +289,8 @@ export class CertificateController {
       console.log(`📅 Issue Date: ${certificate.issueDate}`);
       console.log(`⏳ Expiry Date: ${certificate.expiryDate}`);
       console.log(`✓ Status: ${isExpired ? '❌ EXPIRED' : '✅ VALID'}`);
+      console.log(`🔐 Verification Code Used: ${verificationCode}`);
+      console.log(`🔗 Certificate Hash: ${certificate.blockchainHash || 'N/A'}`);
 
       // **BLOCKCHAIN INTEGRATION**: Verify on blockchain (or demo mode)
       let blockchainVerified = false;
@@ -281,6 +301,7 @@ export class CertificateController {
 
         // Verify on blockchain (works in both real and demo mode)
         logger.info(`Verifying certificate ${certificate.id} on blockchain...`);
+        console.log('\n🔍 Verifying on Blockchain...');
         
         const result = await this.fabricService.evaluateTransaction('VerifyCertificate', [
           certificate.id,
@@ -291,17 +312,25 @@ export class CertificateController {
         blockchainVerified = parsed.verified === true;
         blockchainDetails = parsed;
 
-        const networkMode = this.fabricService.isRealConnection() ? '✅ REAL FABRIC NETWORK' : '🔐 CRYPTOGRAPHIC VERIFICATION (Demo Mode)';
+        const networkMode = this.fabricService.isRealConnection() ? '✅ REAL FABRIC NETWORK' : '🔐 DEMO MODE (Cryptographic Verification)';
+        console.log(`   ${networkMode}`);
+        console.log(`   ✅ Blockchain Verification: ${blockchainVerified ? '✅ VALID' : '❌ INVALID'}`);
         logger.info(`✅ Blockchain verification result: ${blockchainVerified} (${networkMode})`);
       } catch (fabricError) {
         logger.warn(`Blockchain verification failed: ${fabricError}`);
         logger.warn(`Falling back to local database verification`);
+        console.log('   ⚠️  Blockchain verification unavailable, using local database');
       }
 
       console.log(`\n🔗 Blockchain Verification: ${blockchainVerified ? '✅ VERIFIED' : '⚠️ PENDING'}`);
-      console.log('═'.repeat(70));
       console.log('\n✅ CERTIFICATE VERIFIED SUCCESSFULLY');
-      console.log('═'.repeat(70) + '\n');
+      console.log(`   Student: ${certificate.studentName} (${certificate.studentID})`);
+      console.log(`   Certificate: ${certificate.certificateName}`);
+      console.log(`   Status: ${isExpired ? '❌ EXPIRED' : '✅ VALID'}`);
+      console.log(`   Issued: ${certificate.issueDate}`);
+      console.log(`   Expires: ${certificate.expiryDate}`);
+      console.log('═'.repeat(70));
+      console.log('\n');
 
       res.status(200).json({
         success: true,

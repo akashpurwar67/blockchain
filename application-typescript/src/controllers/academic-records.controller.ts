@@ -90,7 +90,26 @@ export class AcademicRecordsController {
       const savedRecord = addOrUpdateAcademicRecord(record);
 
       console.log('\n✅ ACADEMIC RECORD SAVED SUCCESSFULLY');
-      console.log(`Record ID: ${studentId}-Sem${semester}`);
+      console.log(`📋 Record ID: ${studentId}-Sem${semester}`);
+      console.log(`✓ Status: SAVED TO DATABASE`);
+      
+      // Calculate semester GPA
+      const totalCredits = subjects.reduce((sum: number, s: any) => sum + s.credits, 0);
+      const totalPoints = subjects.reduce((sum: number, s: any) => {
+        const percentage = (s.marksObtained / s.marksTotal) * 100;
+        let gradePoint = 0;
+        if (percentage >= 90) gradePoint = 4.0;
+        else if (percentage >= 80) gradePoint = 3.7;
+        else if (percentage >= 70) gradePoint = 3.3;
+        else if (percentage >= 60) gradePoint = 3.0;
+        else if (percentage >= 50) gradePoint = 2.0;
+        else gradePoint = 0.0;
+        return sum + (gradePoint * s.credits);
+      }, 0);
+      const semesterGPA = (totalPoints / totalCredits).toFixed(2);
+      console.log(`📊 Semester GPA: ${semesterGPA}`);
+      console.log(`✓ Total Credits: ${totalCredits}`);
+      console.log('═'.repeat(70));
       console.log('\n');
 
       res.status(201).json({

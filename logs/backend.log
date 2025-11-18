@@ -1,56 +1,46 @@
-nohup: ignoring input
 
 > academic-records-api@1.0.0 dev
 > ts-node src/index.ts
 
-/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:859
-    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
-           ^
-TSError: ⨯ Unable to compile TypeScript:
-src/controllers/certificate.controller.ts(255,64): error TS2304: Cannot find name 'n'.
-src/controllers/certificate.controller.ts(267,89): error TS2304: Cannot find name 'n'.
-src/controllers/certificate.controller.ts(267,159): error TS2304: Cannot find name 'n'.
-src/controllers/certificate.controller.ts(267,222): error TS2304: Cannot find name 'n'.
-src/controllers/certificate.controller.ts(267,285): error TS2304: Cannot find name 'n'.
-src/controllers/certificate.controller.ts(267,349): error TS2304: Cannot find name 'n'.
-src/controllers/certificate.controller.ts(295,105): error TS2304: Cannot find name 'n'.
-src/controllers/certificate.controller.ts(295,141): error TS2304: Cannot find name 'n'.
-src/controllers/certificate.controller.ts(295,202): error TS2304: Cannot find name 'n'.
-src/controllers/certificate.controller.ts(255,63): error TS1127: Invalid character.
-src/controllers/certificate.controller.ts(255,64): error TS1434: Unexpected keyword or identifier.
-src/controllers/certificate.controller.ts(267,88): error TS1127: Invalid character.
-src/controllers/certificate.controller.ts(267,89): error TS1434: Unexpected keyword or identifier.
-src/controllers/certificate.controller.ts(267,158): error TS1127: Invalid character.
-src/controllers/certificate.controller.ts(267,159): error TS1434: Unexpected keyword or identifier.
-src/controllers/certificate.controller.ts(267,221): error TS1127: Invalid character.
-src/controllers/certificate.controller.ts(267,222): error TS1434: Unexpected keyword or identifier.
-src/controllers/certificate.controller.ts(267,284): error TS1127: Invalid character.
-src/controllers/certificate.controller.ts(267,285): error TS1434: Unexpected keyword or identifier.
-src/controllers/certificate.controller.ts(267,348): error TS1127: Invalid character.
-src/controllers/certificate.controller.ts(267,349): error TS1434: Unexpected keyword or identifier.
-src/controllers/certificate.controller.ts(295,104): error TS1127: Invalid character.
-src/controllers/certificate.controller.ts(295,105): error TS1434: Unexpected keyword or identifier.
-src/controllers/certificate.controller.ts(295,140): error TS1127: Invalid character.
-src/controllers/certificate.controller.ts(295,141): error TS1434: Unexpected keyword or identifier.
-src/controllers/certificate.controller.ts(295,201): error TS1127: Invalid character.
-src/controllers/certificate.controller.ts(295,202): error TS1434: Unexpected keyword or identifier.
+[32minfo[39m: Loaded identity: NITWarangalMSP-admin {"service":"academic-records-api","timestamp":"2025-11-18T07:09:35.666Z"}
+[32minfo[39m: Loaded identity: StudentsMSP-admin {"service":"academic-records-api","timestamp":"2025-11-18T07:09:35.670Z"}
+[32minfo[39m: Loaded identity: VerifiersMSP-admin {"service":"academic-records-api","timestamp":"2025-11-18T07:09:35.670Z"}
+[32minfo[39m: Wallet initialized with 3 identities {"service":"academic-records-api","timestamp":"2025-11-18T07:09:35.671Z"}
+[33mwarn[39m: Identity "Org1MSP-admin" not found. Available identities: NITWarangalMSP-admin, StudentsMSP-admin, VerifiersMSP-admin {"service":"academic-records-api","timestamp":"2025-11-18T07:09:35.672Z"}
+[32minfo[39m: Using first available identity: NITWarangalMSP-admin {"service":"academic-records-api","timestamp":"2025-11-18T07:09:35.672Z"}
+[32minfo[39m: Attempting to connect to Fabric network... {"service":"academic-records-api","timestamp":"2025-11-18T07:09:35.672Z"}
+[33mwarn[39m: Could not connect to Fabric network: Error: ENOENT: no such file or directory, open '/tmp/nit-network/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt' {"service":"academic-records-api","timestamp":"2025-11-18T07:09:35.809Z"}
+[32minfo[39m: ✅ Blockchain operations enabled with cryptographic verification {"service":"academic-records-api","timestamp":"2025-11-18T07:09:35.809Z"}
+[32minfo[39m: 🚀 Academic Records API Server started on port 4000 {"service":"academic-records-api","timestamp":"2025-11-18T07:09:35.813Z"}
+[32minfo[39m: 📊 Health check: http://localhost:4000/health {"service":"academic-records-api","timestamp":"2025-11-18T07:09:35.814Z"}
+[32minfo[39m: GET /health {"service":"academic-records-api","timestamp":"2025-11-18T07:09:41.906Z"}
+[32minfo[39m: POST /api/students {"service":"academic-records-api","timestamp":"2025-11-18T07:10:45.530Z"}
+[32minfo[39m: User authenticated: admin1 from NIT Warangal {"service":"academic-records-api","timestamp":"2025-11-18T07:10:45.544Z"}
 
-    at createTSError (/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:859:12)
-    at reportTSError (/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:863:19)
-    at getOutput (/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:1077:36)
-    at Object.compile (/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:1433:41)
-    at Module.m._compile (/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:1617:30)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
-    at Object.require.extensions.<computed> [as .ts] (/home/aashu/blockchain-project/application-typescript/node_modules/ts-node/src/index.ts:1621:12)
-    at Module.load (node:internal/modules/cjs/loader:1197:32)
-    at Function.Module._load (node:internal/modules/cjs/loader:1013:12)
-    at Module.require (node:internal/modules/cjs/loader:1225:19) {
-  diagnosticCodes: [
-    2304, 2304, 2304, 2304, 2304,
-    2304, 2304, 2304, 2304, 1127,
-    1434, 1127, 1434, 1127, 1434,
-    1127, 1434, 1127, 1434, 1127,
-    1434, 1127, 1434, 1127, 1434,
-    1127, 1434
-  ]
-}
+══════════════════════════════════════════════════════════════════════
+📝 STUDENT CREATION
+══════════════════════════════════════════════════════════════════════
+🆔 Student ID: 23mcf1r42
+📚 Name: Shivang Katiyar
+📧 Email: sk23mcf1r42@student.nitw.ac.in
+🏢 Department: CSE
+📅 Enrollment Date: 2025-11-18
+══════════════════════════════════════════════════════════════════════
+[32minfo[39m: [CREATE STUDENT] Request body: {"0":"{","1":"\"","10":"d","100":"n","101":"t","102":"\"","103":":","104":"\"","105":"C","106":"S","107":"E","108":"\"","109":",","11":"\"","110":"\"","111":"g","112":"p","113":"a","114":"\"","115":":","116":"\"","117":"\"","118":",","119":"\"","12":":","120":"e","121":"n","122":"r","123":"o","124":"l","125":"l","126":"m","127":"e","128":"n","129":"t","13":"\"","130":"D","131":"a","132":"t","133":"e","134":"\"","135":":","136":"\"","137":"2","138":"0","139":"2","14":"2","140":"5","141":"-","142":"1","143":"1","144":"-","145":"1","146":"8","147":"\"","148":",","149":"\"","15":"3","150":"n","151":"o","152":"t","153":"e","154":"s","155":"\"","156":":","157":"\"","158":"\"","159":"}","16":"m","17":"c","18":"f","19":"1","2":"s","20":"r","21":"4","22":"2","23":"\"","24":",","25":"\"","26":"n","27":"a","28":"m","29":"e","3":"t","30":"\"","31":":","32":"\"","33":"S","34":"h","35":"i","36":"v","37":"a","38":"n","39":"g","4":"u","40":" ","41":"K","42":"a","43":"t","44":"i","45":"y","46":"a","47":"r","48":"\"","49":",","5":"d","50":"\"","51":"e","52":"m","53":"a","54":"i","55":"l","56":"\"","57":":","58":"\"","59":"s","6":"e","60":"k","61":"2","62":"3","63":"m","64":"c","65":"f","66":"1","67":"r","68":"4","69":"2","7":"n","70":"@","71":"s","72":"t","73":"u","74":"d","75":"e","76":"n","77":"t","78":".","79":"n","8":"t","80":"i","81":"t","82":"w","83":".","84":"a","85":"c","86":".","87":"i","88":"n","89":"\"","9":"I","90":",","91":"\"","92":"d","93":"e","94":"p","95":"a","96":"r","97":"t","98":"m","99":"e","service":"academic-records-api","timestamp":"2025-11-18T07:10:45.551Z"}
+[32minfo[39m: [CREATE STUDENT] Extracted: gpa=, enrollmentDate=2025-11-18, notes= {"service":"academic-records-api","timestamp":"2025-11-18T07:10:45.553Z"}
+[32minfo[39m: Creating student: 23mcf1r42 {"service":"academic-records-api","timestamp":"2025-11-18T07:10:45.555Z"}
+[33mwarn[39m: Fabric network not connected - using demo mode {"service":"academic-records-api","timestamp":"2025-11-18T07:10:45.555Z"}
+[32minfo[39m: 🔗 [BLOCKCHAIN] Submit: CreateStudent {"service":"academic-records-api","timestamp":"2025-11-18T07:10:45.556Z"}
+[32minfo[39m:    Args: 23mcf1r42, Shivang Katiyar, sk23mcf1r42@student.nitw.ac.in, CSE {"service":"academic-records-api","timestamp":"2025-11-18T07:10:45.557Z"}
+[32minfo[39m: ✅ [BLOCKCHAIN] Response: {"CertificateID":"23mcf1r42","StudentID":"Shivang Katiyar","CertificateType":"sk23mcf1r42@student.nitw.ac.in","Status":"ISSUED","CertificateHash":"604ec223dba9d701","IssuedDate":"2025-11-18T07:10:45.558Z","CreatedAt":"2025-11-18T07:10:45.558Z","TransactionID":"TX-1763449845558","Message":"Certificate issued and recorded on blockchain"} {"service":"academic-records-api","timestamp":"2025-11-18T07:10:45.558Z"}
+[32minfo[39m: [CREATE STUDENT] Added enrollmentDate: 2025-11-18 {"service":"academic-records-api","timestamp":"2025-11-18T07:10:45.558Z"}
+[32minfo[39m: [CREATE STUDENT] Final studentData: {"0":"{","1":"\"","10":"d","100":"n","101":"t","102":"\"","103":":","104":"\"","105":"C","106":"S","107":"E","108":"\"","109":",","11":"\"","110":"\"","111":"s","112":"t","113":"a","114":"t","115":"u","116":"s","117":"\"","118":":","119":"\"","12":":","120":"I","121":"S","122":"S","123":"U","124":"E","125":"D","126":"\"","127":",","128":"\"","129":"t","13":"\"","130":"r","131":"a","132":"n","133":"s","134":"a","135":"c","136":"t","137":"i","138":"o","139":"n","14":"2","140":"I","141":"d","142":"\"","143":":","144":"\"","145":"T","146":"X","147":"-","148":"1","149":"7","15":"3","150":"6","151":"3","152":"4","153":"4","154":"9","155":"8","156":"4","157":"5","158":"5","159":"5","16":"m","160":"8","161":"\"","162":",","163":"\"","164":"c","165":"r","166":"e","167":"a","168":"t","169":"e","17":"c","170":"d","171":"A","172":"t","173":"\"","174":":","175":"\"","176":"2","177":"0","178":"2","179":"5","18":"f","180":"-","181":"1","182":"1","183":"-","184":"1","185":"8","186":"T","187":"0","188":"7","189":":","19":"1","190":"1","191":"0","192":":","193":"4","194":"5","195":".","196":"5","197":"5","198":"8","199":"Z","2":"s","20":"r","200":"\"","201":",","202":"\"","203":"c","204":"e","205":"r","206":"t","207":"i","208":"f","209":"i","21":"4","210":"c","211":"a","212":"t","213":"e","214":"s","215":"G","216":"e","217":"n","218":"e","219":"r","22":"2","220":"a","221":"t","222":"e","223":"d","224":"\"","225":":","226":"[","227":"]","228":",","229":"\"","23":"\"","230":"e","231":"n","232":"r","233":"o","234":"l","235":"l","236":"m","237":"e","238":"n","239":"t","24":",","240":"D","241":"a","242":"t","243":"e","244":"\"","245":":","246":"\"","247":"2","248":"0","249":"2","25":"\"","250":"5","251":"-","252":"1","253":"1","254":"-","255":"1","256":"8","257":"\"","258":"}","26":"n","27":"a","28":"m","29":"e","3":"t","30":"\"","31":":","32":"\"","33":"S","34":"h","35":"i","36":"v","37":"a","38":"n","39":"g","4":"u","40":" ","41":"K","42":"a","43":"t","44":"i","45":"y","46":"a","47":"r","48":"\"","49":",","5":"d","50":"\"","51":"e","52":"m","53":"a","54":"i","55":"l","56":"\"","57":":","58":"\"","59":"s","6":"e","60":"k","61":"2","62":"3","63":"m","64":"c","65":"f","66":"1","67":"r","68":"4","69":"2","7":"n","70":"@","71":"s","72":"t","73":"u","74":"d","75":"e","76":"n","77":"t","78":".","79":"n","8":"t","80":"i","81":"t","82":"w","83":".","84":"a","85":"c","86":".","87":"i","88":"n","89":"\"","9":"I","90":",","91":"\"","92":"d","93":"e","94":"p","95":"a","96":"r","97":"t","98":"m","99":"e","service":"academic-records-api","timestamp":"2025-11-18T07:10:45.558Z"}
+[32minfo[39m: Loaded 3 students from file {"service":"academic-records-api","timestamp":"2025-11-18T07:10:45.568Z"}
+[32minfo[39m: Saved 4 students to file {"service":"academic-records-api","timestamp":"2025-11-18T07:10:45.574Z"}
+[32minfo[39m: Added student: 23mcf1r42 {"service":"academic-records-api","timestamp":"2025-11-18T07:10:45.574Z"}
+
+✅ STUDENT CREATED SUCCESSFULLY
+Student ID: 23mcf1r42
+Transaction ID: TX-1763449845558
+
+
